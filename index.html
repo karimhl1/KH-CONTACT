@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="icone.png">
+  <title>KH - Contact</title>
+  <style>
+    @keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-circle.spin {
+  animation: spin 1s ease-in-out;
+}
+    /* ========== Variables ========== */
+    :root {
+      --bg: #0b0b0c;
+      --card: #0f1720;
+      --muted: #9aa3ad;
+      --accent-blue: #2f80ed;
+      --accent-green: #1db954;
+      --white: #fff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ========== Reset ========== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    /* ========== Body & Background ========== */
+    body {
+      background: 
+        radial-gradient(1200px 600px at 10% 10%, rgba(47,128,237,0.08), transparent),
+        radial-gradient(900px 400px at 90% 90%, rgba(29,185,84,0.04), transparent),
+        var(--bg);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    /* ========== Floaters Animation ========== */
+    .floaters {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .floater {
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.12;
+      filter: blur(20px);
+      animation: drift 12s infinite linear;
+    }
+
+    .floater.x1 {
+      width: 420px;
+      height: 420px;
+      left: -80px;
+      top: 10%;
+      background: linear-gradient(135deg, var(--accent-blue), transparent);
+      animation-duration: 18s;
+    }
+
+    .floater.x2 {
+      width: 320px;
+      height: 320px;
+      right: -40px;
+      bottom: 15%;
+      background: linear-gradient(135deg, var(--accent-green), transparent);
+      animation-duration: 22s;
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-40px) translateX(30px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ========== Main Card ========== */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      padding: 32px;
+      width: min(720px, 92vw);
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+      border: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 28px;
+      opacity: 0;
+      transform: translateY(18px) scale(0.99);
+      animation: pop 700ms cubic-bezier(.2,.9,.3,1) forwards 200ms;
+      overflow: visible;
+    }
+
+    @keyframes pop {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ========== Logo Circle ========== */
+    .logo-circle {
+       box-shadow: 0 0 20px rgba(29,185,84,0.4), 0 0 40px rgba(47,128,237,0.2);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.1);
+     
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-circle:hover {
+       transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(47,128,237,0.6), 0 0 50px rgba(29,185,84,0.4);
+     
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ========== Profile Popup ========== */
+    .profile-popup {
+      position: absolute;
+      top: 130px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 16px 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      color: var(--white);
+      text-align: center;
+      font-size: 14px;
+      z-index: 10000;
+      display: none;
+      white-space: nowrap;
+      pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(47,128,237,0.3);
+  box-shadow: 0 4px 30px rgba(47,128,237,0.2);
+    }
+
+    .profile-popup.show {
+      display: block;
+      display: block;
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1.05);
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    .profile-popup h3 {
+      margin: 4px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .profile-popup p {
+      margin: 2px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    /* ========== Language Dropdown ========== */
+    .lang-dropdown {
+      position: relative;
+      align-self: flex-end;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 20px;
+      padding: 8px;
+      transition: transform 0.2s;
+    }
+
+    .lang-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .lang-menu button {
+      background: none;
+      border: none;
+      color: var(--white);
+      padding: 10px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .lang-menu button:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ========== Typography ========== */
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* ========== Contact Buttons ========== */
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--glass-2);
+      border: 1px solid rgba(255,255,255,0.03);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+     .btn:hover {
+      transform: translateY(-5px);
+      background: var(--glass);
+      box-shadow: 0 8px 20px rgba(47,128,237,0.3);
+      border: 1px solid rgba(47,128,237,0.2);
+    }
+
+    .btn img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* ========== Not Available Modal ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 20000;
+      animation: fadeInModal 0.3s ease;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    @keyframes fadeInModal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .modal h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .modal-btn {
+      background: var(--accent-blue);
+      border: none;
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .modal-btn:hover {
+      background: #2671d9;
+      transform: scale(1.05);
+    }
+
+    /* ========== Footer ========== */
+    .small {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <!-- Background Floaters -->
+  <div class="floaters">
+    <div class="floater x1"></div>
+    <div class="floater x2"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="wrap">
+    <div class="card">
+      <div class="lang-dropdown">
+        <button class="lang-btn" id="langBtn" title="Changer la langue">🌐</button>
+        <div class="lang-menu" id="langMenu">
+          <button data-lang="fr">Français</button>
+          <button data-lang="en">English</button>
+          <button data-lang="ar">العربية</button>
+        </div>
+      </div>
+      <!-- Profile Photo -->
+      <div class="logo-circle" id="profilePhoto">
+        <img src="logo1.png" alt="Photo de profil">
+        <div class="profile-popup" id="profilePopup">
+          <h3>Karim Halkoum</h3>
+          <p>Développeur Web & Applications</p>
+        </div>
+      </div>
+
+      <!-- Language Selector -->
+      
+
+      <!-- Brand -->
+      <div style="font-size: 14px; font-weight: 700; letter-spacing: 2px; color: blanchedalmond; margin-bottom: -10px;">
+        KH-CONTACT
+      </div>
+
+      <!-- Heading -->
+      <h1 id="heading" data-en="Get in touch" data-fr="Contactez-moi" data-ar="تواصل معي">
+        Contactez-moi
+      </h1>
+      <p id="sub" data-en="Choose a method — I reply fast." data-fr="Choisissez une méthode — je réponds vite." data-ar="اختر وسيلة — سأرد بسرعة.">
+        Choisissez une méthode — je réponds vite.
+      </p>
+
+      <!-- Contact Buttons -->
+      <div class="contact-buttons">
+    <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=karimhalkoum134@gmail.com" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
+  <span>Email</span>
+</a>
+
+<a class="btn" href="https://wa.me/213549838960" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp">
+  <span>WhatsApp</span>
+</a>
+
+<a class="btn" href="https://t.me/karimhl0" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram">
+  <span>Telegram</span>
+</a>
+        <button class="btn" id="siteBtn">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@15.16.0/icons/googlechrome.svg" alt="Site Web">
+          <span id="siteBtnText" data-en="Website" data-fr="Site Web" data-ar="الموقع">Site Web</span>
+        </button>
+        <button class="btn" id="aboutBtn">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/about-dot-me.svg" alt="À propos">
+    <span id="aboutText" data-en="About Me" data-fr="À propos de moi" data-ar="حولّي">À propos de moi</span>
+  </button>
+      </div>
+
+      <!-- Footer Note -->
+      <div class="small" id="note">
+       @KH-2025
+      </div>
+    </div>
+  </div>
+
+  <!-- Not Available Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-icon">⏳</div>
+      <h2 id="modalTitle" data-en="Not Available Yet" data-fr="Non disponible pour le moment" data-ar="غير متاح حاليًا">
+        Non disponible pour le moment
+      </h2>
+      <p id="modalText" data-en="The website is under construction. Check back soon!" data-fr="Le site web est en construction. Revenez bientôt !" data-ar="الموقع قيد الإنشاء. عد قريبًا!">
+        Le site web est en construction. Revenez bientôt !
+      </p>
+      <button class="modal-btn" id="modalCloseBtn" data-en="Got it" data-fr="Compris" data-ar="حسنًا">
+        Compris
+      </button>
+    </div>
+  </div>
+<div class="modal-overlay" id="aboutOverlay">
+  <div class="modal">
+    <div class="modal-icon">💬</div>
+    <h2 id="aboutTitle" data-en="About Me" data-fr="À propos de moi" data-ar="حولّي">
+      À propos de moi
+    </h2>
+    <p id="aboutDesc" data-en="I, Karim Halkoum, am a senior IT technician, specializing in databases as well as web development, desktop and mobile applications." 
+       data-fr="Moi, Karim Halkoum, je suis technicien supérieur en informatique, spécialisé en bases de données ainsi qu’en développement web, d’applications desktop et mobiles." 
+       data-ar="أنا كريم حلقوم، فني تكنولوجيا معلومات كبير، متخصص في قواعد البيانات بالإضافة إلى تطوير الويب وتطبيقات سطح المكتب والهواتف المحمولة.">
+Moi, Karim Halkoum, je suis technicien supérieur en informatique, spécialisé en bases de données ainsi qu’en développement web, d’applications desktop et mobiles    </p>
+    <button class="modal-btn" id="aboutCloseBtn" data-en="Close" data-fr="Fermer" data-ar="إغلاق">
+      Fermer
+    </button>
+  </div>
+</div>
+  <script>
+    // ========== Profile Popup ==========
+    const logoCircle = document.getElementById('profilePhoto');
+    const profilePopup = document.getElementById('profilePopup');
+
+    logoCircle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profilePopup.classList.toggle('show');
+    });
+
+    document.addEventListener('click', () => {
+      profilePopup.classList.remove('show');
+    });
+
+    // ========== Language Dropdown ==========
+    const langBtn = document.getElementById('langBtn');
+    const langMenu = document.getElementById('langMenu');
+    
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.style.display = langMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+        langMenu.style.display = 'none';
+      }
+    });
+
+    // ========== Language Change ==========
+    const texts = document.querySelectorAll('[data-en]');
+    langMenu.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        
+        texts.forEach(el => {
+          el.textContent = el.dataset[lang];
+        });
+        
+        langMenu.style.display = 'none';
+      });
+    });
+
+    // ========== Not Available Modal ==========
+    const siteBtn = document.getElementById('siteBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    siteBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalOverlay.classList.add('show');
+    });
+
+    modalCloseBtn.addEventListener('click', () => {
+      modalOverlay.classList.remove('show');
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('show');
+      }
+    });
+    // ========== About Me Modal ==========
+const aboutBtn = document.getElementById('aboutBtn');
+const aboutOverlay = document.getElementById('aboutOverlay');
+const aboutCloseBtn = document.getElementById('aboutCloseBtn');
+
+aboutBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  aboutOverlay.classList.add('show');
+});
+
+aboutCloseBtn.addEventListener('click', () => {
+  aboutOverlay.classList.remove('show');
+});
+
+aboutOverlay.addEventListener('click', (e) => {
+  if (e.target === aboutOverlay) {
+    aboutOverlay.classList.remove('show');
+  }
+});
+// ========== Image Rotation + Change ==========
+const profileImg = logoCircle.querySelector('img');
+let currentImage = 'logo1.png';
+
+logoCircle.addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  // Lance la rotation
+  logoCircle.classList.add('spin');
+
+  // Après la rotation, change l'image
+  setTimeout(() => {
+    logoCircle.classList.remove('spin');
+    currentImage = currentImage === 'logo1.png' ? 'icone.png' : 'logo1.png';
+    profileImg.src = currentImage;
+  }, 1000);
+
+  // Affiche ou cache le popup
+  profilePopup.classList.toggle('show');
+});
+
+  </script>
+  <!-- About Me Modal -->
+
+
+</body>
+</html>
