@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="site_title">KARIX-TECH</title>
+    <link rel="icon" href="logo1.png">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+         <div class="logo">
+            <img src="logo1.png" alt="Logo KARIX-TECH" class="logo-img">
+            <span>KARIX-TECH.</span>
+        </div>
+            
+            <div class="lang-switcher">
+                <button onclick="setLanguage('fr')" class="lang-btn active">FR</button>
+                <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+                <button onclick="setLanguage('ar')" class="lang-btn">AR</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#accueil" data-i18n="nav_home">Accueil</a></li>
+                <li><a href="#apropos" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                <li><a href="#produits" data-i18n="nav_products">Nos Logiciels</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1><span data-i18n="hero_welcome">Bienvenue chez KARIX-TECH</span> <br>
+                <span class="highlight" data-i18n="hero_speciality">Experts en Développement & Bases de Données</span></h1>
+            <p data-i18n="hero_desc">Nous concevons des solutions logicielles robustes et des applications web innovantes pour propulser votre entreprise.</p>
+            <div class="hero-btns">
+                <a href="#produits" class="btn" data-i18n="btn_view_products">Voir nos logiciels</a>
+                <a href="#contact" class="btn btn-outline" data-i18n="btn_start_project">Démarrer un projet</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="about">
+        <h2 class="section-title" data-i18n="about_title">À propos de KARIX-TECH</h2>
+        <div class="about-content">
+            <p data-i18n="about_text">KARIX-TECH est une entreprise technologique spécialisée dans la fourniture de solutions numériques sur mesure. Notre équipe passionnée maîtrise la gestion complexe des données et le développement d'applications performantes. Notre mission : transformer vos défis opérationnels en avantages concurrentiels grâce à des outils numériques fiables.</p>
+        </div>
+    </section>
+
+    <section id="services" class="skills">
+        <h2 class="section-title" data-i18n="services_title">Nos Domaines d'Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3 data-i18n="srv_db_title">Bases de Données Avancées</h3>
+                <p data-i18n="srv_db_desc">Modélisation, optimisation et administration sécurisée de vos données critiques.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3 data-i18n="srv_desktop_title">Logiciels Sur Mesure</h3>
+                <p data-i18n="srv_desktop_desc">Développement d'applications de bureau performantes pour la gestion interne.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-globe"></i>
+                <h3 data-i18n="srv_web_title">Applications Web & SaaS</h3>
+                <p data-i18n="srv_web_desc">Création de plateformes web dynamiques, responsives et évolutives.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3 data-i18n="srv_mobile_title">Solutions Mobiles</h3>
+                <p data-i18n="srv_mobile_desc">Extension de vos services sur smartphones et tablettes.</p>
+            </div>
+        </div>
+    </section>
+
+  <section id="produits" class="projects">
+        <h2 class="section-title" data-i18n="products_title">Nos Solutions Prêtes à l'Emploi</h2>
+        <p class="section-subtitle" data-i18n="products_subtitle">Des logiciels éprouvés disponibles immédiatement sous licence.</p>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-media">
+                    <video width="100%" controls poster="images/tijarix-cover.jpg">
+                        <source src="videos/tijarix-demo.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </div>
+                
+                <div class="project-info">
+                    <div class="tags-price">
+                        <span class="tag desktop">Application Bureau</span>
+                        <span class="price-badge" data-i18n="price_tijarix">À partir de 50 000 DZD</span>
+                    </div>
+                    <h3>Tijarix</h3>
+                    <p data-i18n="prod_tijarix_desc">Solution commerciale complète pour la gestion quotidienne des PME.</p>
+                    
+                    <ul class="project-details">
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_tijarix_1">Gestion complète des Achats et Ventes.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_tijarix_2">Facturation automatisée et devis.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_tijarix_3">Statistiques et rapports financiers détaillés.</span></li>
+                    </ul>
+
+                    <a href="#contact" class="btn-small" data-i18n="btn_license">Demander une licence</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-media">
+                    <video width="100%" controls poster="images/nexuspos-cover.jpg">
+                        <source src="videos/nexuspos-demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="project-info">
+                    <div class="tags-price">
+                        <span class="tag web">Web / Caisse Tactile</span>
+                        <span class="price-badge" data-i18n="price_nexus">À partir de 45 000 DZD</span>
+                    </div>
+                    <h3>NexusPOS</h3>
+                    <p data-i18n="prod_nexus_desc">Système de point de vente (POS) intuitif conçu pour les restaurants et cafés.</p>
+                    
+                    <ul class="project-details">
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_nexus_1">Interface tactile rapide et fluide.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_nexus_2">Gestion des tables et commandes en cuisine.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_nexus_3">Support multi-utilisateurs (Serveur, Caissier).</span></li>
+                    </ul>
+
+                    <a href="#contact" class="btn-small" data-i18n="btn_license">Demander une licence</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-media">
+                    <video width="100%" controls poster="images/stock-cover.jpg">
+                        <source src="videos/stock-demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                
+                <div class="project-info">
+                    <div class="tags-price">
+                        <span class="tag desktop">Application Bureau</span>
+                        <span class="price-badge" data-i18n="price_stock">À partir de 35 000 DZD</span>
+                    </div>
+                    <h3 data-i18n="prod_stock_title">Gestion de Stock Pro</h3>
+                    <p data-i18n="prod_stock_desc">Logiciel robuste pour le suivi des inventaires et l'optimisation des approvisionnements.</p>
+                    
+                    <ul class="project-details">
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_stock_1">Suivi des entrées/sorties en temps réel.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_stock_2">Alertes de rupture de stock intelligentes.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-i18n="detail_stock_3">Génération de codes-barres et étiquettes.</span></li>
+                    </ul>
+
+                    <a href="#contact" class="btn-small" data-i18n="btn_license">Demander une licence</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title" data-i18n="contact_title">Contactez KARIX-TECH</h2>
+        <p data-i18n="contact_subtitle">Vous avez un projet ? Vous souhaitez acquérir une licence ? Discutons-en.</p>
+
+        <div class="social-media">
+            <p data-i18n="follow_us">Suivez-nous :</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="mailto:contact@karixtech.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+      <form class="contact-form" id="karix-form" action="https://formspree.io/f/xvzbaqjz" method="POST">
+    
+        <div class="form-group">
+            <label data-i18n="form_name">Votre Nom complet</label>
+            <input type="text" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label data-i18n="form_email">Votre Email professionnel</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label data-i18n="form_type_label">Nature de votre demande</label>
+            <select name="demande_type" id="request-type" required onchange="toggleProjectDetails(this.value)">
+                <option value="" data-i18n="opt_select">-- Sélectionnez --</option>
+                <option value="Licence Logiciel" data-i18n="opt_license">Acheter une licence logicielle (Tijarix, POS...)</option>
+                <option value="Nouveau Projet" data-i18n="opt_new_project">Créer un nouveau projet sur mesure</option>
+                <option value="Partenariat" data-i18n="opt_partner">Partenariat / Autre</option>
+            </select>
+        </div>
+        
+        <div class="form-group project-details-group" style="display:none;">
+            <label data-i18n="form_project_type">Quel type de projet souhaitez-vous ?</label>
+            <select name="projet_details">
+                <option value="Site Vitrine" data-i18n="proj_site_vitrine">Site Web Vitrine (Présentation)</option>
+                <option value="E-commerce" data-i18n="proj_ecommerce">Site E-commerce (Vente en ligne)</option>
+                <option value="Web App" data-i18n="proj_webapp">Application Web Complexe (SaaS)</option>
+                <option value="Desktop App" data-i18n="proj_desktop">Logiciel de Bureau (Windows/Mac)</option>
+                <option value="Mobile App" data-i18n="proj_mobile">Application Mobile (iOS/Android)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-i18n="form_message">Votre message / Détails du projet</label>
+            <textarea name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn" id="submit-btn" data-i18n="btn_send">Envoyer la demande</button>
+        
+        <div id="form-status" style="display: none; margin-top: 15px; padding: 15px; border-radius: 5px; font-weight: bold; text-align: center;"></div>
+
+      </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - KARIX-TECH Solutions.</span></p>
+    </footer>
+
+    <script src="script1.js"></script>
+</body>
+</html>
