@@ -20,32 +20,13 @@
       --card: #14141e;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Raleway', sans-serif;
+    html { scroll-behavior: smooth; 
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Raleway', sans-serif;
       font-weight: 400;
       overflow-x: hidden;
-      cursor: none;
     }
-
-    .cursor {
-      position: fixed; width: 12px; height: 12px;
-      background: var(--accent); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transition: transform 0.15s ease, background 0.2s;
-      mix-blend-mode: screen;
-    }
-    .cursor-ring {
-      position: fixed; width: 36px; height: 36px;
-      border: 1px solid rgba(124,106,247,0.5); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transition: transform 0.4s ease, width 0.3s, height 0.3s;
-    }
-    .cursor.hovered { transform: scale(2.5); background: var(--accent2); }
-    .cursor-ring.hovered { width: 56px; height: 56px; border-color: var(--accent2); }
 
     body::before {
       content: ''; position: fixed; inset: 0;
@@ -152,7 +133,7 @@
       border: none; border-radius: 6px;
       font-family: 'Outfit', sans-serif;
       font-size: 0.88rem; letter-spacing: 0.04em; font-weight: 600;
-      text-transform: uppercase; text-decoration: none; cursor: none;
+      text-transform: uppercase; text-decoration: none; 
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 0 30px rgba(124,106,247,0.3);
     }
@@ -162,7 +143,7 @@
       border: 1px solid var(--border); border-radius: 6px;
       font-family: 'Outfit', sans-serif;
       font-size: 0.88rem; letter-spacing: 0.04em; font-weight: 600;
-      text-transform: uppercase; text-decoration: none; cursor: none;
+      text-transform: uppercase; text-decoration: none; 
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
@@ -355,6 +336,14 @@
       transition: transform 1s ease;
     }
     .skill-card.visible .skill-bar { transform: scaleX(1); }
+    .skill-level {
+      display: inline-block; margin-top: 1rem;
+      padding: 0.22rem 0.85rem; border-radius: 100px;
+      font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .skill-level.advanced { background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
+    .skill-level.intermediate { background: rgba(247,162,106,0.12); border: 1px solid rgba(247,162,106,0.3); color: var(--accent2); }
 
     /* PROJECTS */
     #projects { border-top: 1px solid var(--border); }
@@ -384,6 +373,22 @@
     }
     .project-title { font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
     .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .proj-btn-primary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.1rem; background: var(--accent); color: #fff;
+      border-radius: 6px; text-decoration: none;
+      font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.04em; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .proj-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(124,106,247,0.4); }
+    .proj-btn-sec {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.1rem; border: 1px solid var(--border); color: var(--muted);
+      border-radius: 6px; text-decoration: none;
+      font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .proj-btn-sec:hover { border-color: var(--accent); color: var(--accent); }
 
     /* CONTACT */
     #contact { border-top: 1px solid var(--border); background: var(--surface); text-align: center; }
@@ -428,19 +433,17 @@
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
   <nav>
     <div class="nav-logo">KH.</div>
     <ul class="nav-links">
       <li><a href="#about">À propos</a></li>
+      <li><a href="#experiences">Expériences</a></li>
       <li><a href="#skills">Compétences</a></li>
       <li><a href="#projects">Projets</a></li>
       <li><a href="#karix-section">KARIX-Tech</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Recrutez-moi</a>
+    <a href="#contact" class="nav-cta">Start a Project</a>
   </nav>
 
   <!-- HERO -->
@@ -449,20 +452,20 @@
     <div class="hero-glow"></div>
     <div class="hero-glow2"></div>
     <div class="hero-content">
-      <div class="hero-badge">Technicien Supérieur en Informatique</div>
+      <div class="hero-badge">✅ Available for Freelance &amp; Full-time</div>
       <h1>
         Karim<br>
         <span class="accent">Halkoum</span><br>
-        <span class="line2">Database &amp; App Developer</span>
+        <span class="line2">I build fast &amp; scalable business systems</span>
       </h1>
       <p class="hero-desc">
-        Expert en <strong>conception de bases de données</strong> et développement d'applications 
-        web &amp; desktop. Je transforme l'analyse de systèmes complexes en solutions numériques 
-        robustes et performantes.
+        POS · HR · Stock · Help Desk — <strong>real systems, deployed &amp; used.</strong><br>
+        Je conçois des applications métier complètes (Web &amp; Desktop) pour les TPE/PME algériennes.<br>
+        <strong>Besoin d'un système qui marche ?</strong> Vous êtes au bon endroit.
       </p>
       <div class="hero-actions">
-        <a href="#projects" class="btn-primary">Découvrir mes projets</a>
-        <a href="#contact" class="btn-outline">Me contacter</a>
+        <a href="#projects" class="btn-primary">Voir mes réalisations →</a>
+        <a href="https://wa.me/213541166078" target="_blank" class="btn-outline">💬 WhatsApp</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -482,20 +485,67 @@
       </div>
       <div class="about-text reveal">
         <p>
-          Passionné par la programmation, je m'intéresse particulièrement à la 
-          <strong>conception de systèmes informatiques structurés</strong>, adaptés aux besoins 
-          réels des organisations.
+          Je me spécialise dans la création de <strong>systèmes offline-first pour les petites 
+          entreprises algériennes</strong> — des applications qui fonctionnent sans internet, 
+          rapides, simples, et adaptées aux réalités locales.
         </p>
         <p>
-          Pour moi, l'informatique ne se limite pas à l'écriture du code : il s'agit d'analyser 
-          et de modéliser via <strong>UML</strong> (classes, cas d'utilisation, séquences) pour 
-          garantir l'efficacité de chaque solution.
+          Stagiaire chez <strong>Sonatrach (Direction Générale)</strong>, j'ai configuré et 
+          maintenu l'infrastructure réseau interne et contribué à la gestion des bases de 
+          données de l'une des plus grandes entreprises d'Afrique.
         </p>
         <p>
-          Je porte une attention particulière à la <strong>sécurité</strong>, l'optimisation 
-          des données et la création d'interfaces ergonomiques pour l'utilisateur final.
+          Aujourd'hui, je développe des systèmes <strong>POS, GRH, Help Desk et gestion de 
+          stock</strong> — des outils réels utilisés par des vraies personnes, pas des projets 
+          de démonstration.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section id="experiences" style="border-top:1px solid var(--border);">
+    <div class="section-label">Expériences</div>
+    <h2>Parcours professionnel</h2>
+    <div style="display:flex;flex-direction:column;gap:2rem;margin-top:3rem;">
+
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;position:relative;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.3rem;">Stage Pratique — Sonatrach (Direction Générale)</div>
+            <div style="font-size:0.85rem;color:var(--muted);">Maintenance réseau &amp; gestion bases de données</div>
+          </div>
+          <span style="font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;color:var(--accent);background:rgba(124,106,247,0.12);border:1px solid rgba(124,106,247,0.22);border-radius:100px;padding:0.25rem 0.9rem;white-space:nowrap;">6 mois</span>
+        </div>
+        <p style="margin-top:1rem;font-size:0.88rem;color:var(--muted);line-height:1.8;">
+          ✅ Configuré et maintenu le réseau interne (protocoles TCP/IP, DHCP, câblage RJ45)<br>
+          ✅ Contribution à la gestion des bases de données internes d'une entreprise de +100 000 employés<br>
+          ✅ Diagnostic réseau avec Advanced IP Scanner sur infrastructure multi-sites
+        </p>
+      </div>
+
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.3rem;">Agent Polyvalent — Medina Parck</div>
+            <div style="font-size:0.85rem;color:var(--muted);">Accueil client &amp; gestion des opérations</div>
+          </div>
+          <span style="font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;color:var(--accent);background:rgba(124,106,247,0.12);border:1px solid rgba(124,106,247,0.22);border-radius:100px;padding:0.25rem 0.9rem;white-space:nowrap;">8 mois</span>
+        </div>
+        <p style="margin-top:1rem;font-size:0.88rem;color:var(--muted);line-height:1.8;">Accueil et orientation des clients, gestion des opérations quotidiennes, résolution des incidents.</p>
+      </div>
+
+      <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:0.3rem;">Caissier &amp; Réparateur de Téléphones</div>
+            <div style="font-size:0.85rem;color:var(--muted);">Réparation mobile &amp; relation client</div>
+          </div>
+          <span style="font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;color:var(--accent);background:rgba(124,106,247,0.12);border:1px solid rgba(124,106,247,0.22);border-radius:100px;padding:0.25rem 0.9rem;white-space:nowrap;">6 mois</span>
+        </div>
+        <p style="margin-top:1rem;font-size:0.88rem;color:var(--muted);line-height:1.8;">Réparation de téléphones mobiles, gestion de stock, encaissement et relation client.</p>
+      </div>
+
     </div>
   </section>
 
@@ -508,64 +558,132 @@
         <div class="skill-icon">🗄️</div>
         <div class="skill-name">Data &amp; Backend</div>
         <div class="skill-desc">MySQL, SQL Server, PHP. Modélisation et optimisation de bases de données relationnelles.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+        <span class="skill-level advanced">Advanced</span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">🖥️</div>
-        <div class="skill-name">Desktop &amp; Java</div>
-        <div class="skill-desc">Développement d'applications robustes avec Java (Swing) pour des solutions hors-ligne performantes.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        <div class="skill-name">Desktop &amp; Java / C#</div>
+        <div class="skill-desc">Applications robustes avec Java (Swing) et C# — systèmes POS et gestion hors-ligne performants.</div>
+        <span class="skill-level advanced">Advanced</span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">📐</div>
         <div class="skill-name">Analyse UML</div>
         <div class="skill-desc">Conception de diagrammes de classes, cas d'utilisation et séquences pour une architecture propre.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        <span class="skill-level intermediate">Intermediate</span>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon">🌐</div>
         <div class="skill-name">Web Core</div>
-        <div class="skill-desc">HTML5, CSS3, JavaScript. Création d'interfaces modernes et ergonomiques.</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        <div class="skill-desc">HTML5, CSS3, JavaScript, PHP. Interfaces modernes, responsive et ergonomiques.</div>
+        <span class="skill-level advanced">Advanced</span>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🗃️</div>
+        <div class="skill-name">SQLite &amp; Supabase</div>
+        <div class="skill-desc">Bases de données légères (SQLite) et solutions cloud modernes (Supabase) pour apps desktop et web.</div>
+        <span class="skill-level intermediate">Intermediate</span>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🔌</div>
+        <div class="skill-name">Réseaux Informatiques</div>
+        <div class="skill-desc">TCP/IP, DHCP, câblage RJ45. Configuration et maintenance d'infrastructures réseau. Advanced IP Scanner.</div>
+        <span class="skill-level intermediate">Intermediate</span>
       </div>
     </div>
-  </section>
 
-  <!-- PROJECTS -->
+    <!-- LANGUES -->
+    <div style="margin-top:4rem;">
+      <div class="section-label" style="margin-bottom:1.5rem;">Langues</div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 2rem;display:flex;align-items:center;gap:1rem;">
+          <span style="font-size:1.6rem;">🇩🇿</span>
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;">Arabe</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Courant</div>
+          </div>
+        </div>
+        <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 2rem;display:flex;align-items:center;gap:1rem;">
+          <span style="font-size:1.6rem;">🇫🇷</span>
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;">Français</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Courant (parlé et écrit)</div>
+          </div>
+        </div>
+        <div class="reveal" style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 2rem;display:flex;align-items:center;gap:1rem;">
+          <span style="font-size:1.6rem;">🇬🇧</span>
+          <div>
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;">Anglais</div>
+            <div style="font-size:0.8rem;color:var(--muted);">Intermédiaire (lecture technique)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
   <section id="projects">
     <div class="section-label">Projets</div>
     <h2>Réalisations clés</h2>
+    <p style="color:var(--muted);font-size:0.95rem;margin-bottom:1rem;">Systèmes réels — pas des projets de démonstration.</p>
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="project-thumb">📦</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);font-size:2.5rem;">📦</div>
         <div class="project-body">
-          <div class="project-tags"><span class="tag">Java</span><span class="tag">SQL Server</span></div>
+          <div class="project-tags"><span class="tag">Java</span><span class="tag">SQL Server</span><span class="tag">Desktop</span></div>
           <div class="project-title">G-STOCK</div>
-          <div class="project-desc">Système complet de gestion de stock et caisse, optimisé pour la rapidité et la fiabilité des transactions.</div>
+          <div class="project-desc">Système complet de gestion de stock &amp; caisse. Gère les entrées/sorties de produits, alertes de stock bas, historique des transactions — conçu pour fonctionner <strong style="color:var(--text)">100% offline</strong>.</div>
+          <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+            <a href="#" class="proj-btn-primary">📂 GitHub</a>
+            <a href="#contact" class="proj-btn-sec">💬 Demander une démo</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-thumb">👥</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0f2027,#203a43);font-size:2.5rem;">👥</div>
         <div class="project-body">
-          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Web</span></div>
           <div class="project-title">App Web GRH</div>
-          <div class="project-desc">Plateforme de Gestion des Ressources Humaines permettant le suivi des employés et la structure organisationnelle.</div>
+          <div class="project-desc">Plateforme RH complète : gestion des employés, suivi des congés &amp; salaires, interface admin. Réduit le temps de traitement RH et centralise toutes les données en un seul endroit.</div>
+          <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+            <a href="#" class="proj-btn-primary">📂 GitHub</a>
+            <a href="#contact" class="proj-btn-sec">💬 Demander une démo</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-thumb">🎧</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a0533,#2d1b69);font-size:2.5rem;">🎧</div>
         <div class="project-body">
-          <div class="project-tags"><span class="tag">Web</span><span class="tag">Support</span></div>
+          <div class="project-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Web</span></div>
           <div class="project-title">Help Desk IT</div>
-          <div class="project-desc">Solution de gestion de tickets de support informatique pour fluidifier l'assistance technique.</div>
+          <div class="project-desc">Système de ticketing pour support informatique : création, assignation et suivi des tickets, rôles utilisateurs, tableau de bord avec statistiques en temps réel.</div>
+          <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+            <a href="#" class="proj-btn-primary">📂 GitHub</a>
+            <a href="#contact" class="proj-btn-sec">💬 Demander une démo</a>
+          </div>
         </div>
       </div>
       <div class="project-card reveal">
-        <div class="project-thumb">🛒</div>
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0d1117,#161b22);font-size:2.5rem;">🛒</div>
         <div class="project-body">
-          <div class="project-tags"><span class="tag">E-commerce</span><span class="tag">PHP</span></div>
-          <div class="project-title">Solutions Commerçants</div>
-          <div class="project-desc">Conception de sites e-commerce sur mesure pour aider les commerçants à digitaliser leurs ventes.</div>
+          <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div>
+          <div class="project-title">Site E-commerce</div>
+          <div class="project-desc">Interface e-commerce responsive avec catalogue produits dynamique, design moderne et expérience d'achat fluide — entièrement en front-end statique.</div>
+          <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+            <a href="#" class="proj-btn-primary">📂 GitHub</a>
+            <a href="#" class="proj-btn-sec">🌐 Live Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1c0b00,#3d1a00);font-size:2.5rem;">🖨️</div>
+        <div class="project-body">
+          <div class="project-tags"><span class="tag">C#</span><span class="tag">SQLite</span><span class="tag">Desktop</span></div>
+          <div class="project-title">Tijarix — POS Caisse</div>
+          <div class="project-desc">Application point de vente desktop : encaissement rapide, gestion des produits, impression de reçus — <strong style="color:var(--text)">offline-first</strong>, idéal pour boutiques &amp; commerces.</div>
+          <div style="display:flex;gap:0.7rem;margin-top:1.2rem;flex-wrap:wrap;">
+            <a href="#" class="proj-btn-primary">📂 GitHub</a>
+            <a href="#contact" class="proj-btn-sec">💬 Demander une démo</a>
+          </div>
         </div>
       </div>
     </div>
@@ -626,13 +744,27 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-label" style="justify-content:center">Contact</div>
-    <h2>Collaborons ensemble</h2>
-    <p class="subtitle">Besoin d'un système structuré ou d'une application performante ?</p>
+    <h2>Démarrons votre projet</h2>
+    <p class="subtitle">POS · GRH · Stock · Web — Je livre en 2 à 4 semaines.</p>
+    <div style="display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;">
+      <a href="https://wa.me/213541166078" target="_blank" style="display:inline-flex;align-items:center;gap:0.7rem;padding:0.85rem 2rem;background:#25d366;color:#fff;border-radius:8px;text-decoration:none;font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.04em;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(37,211,102,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.3)'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Start a Project — WhatsApp
+      </a>
+      <a href="mailto:karimhalkoum134@gmail.com" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;border:1px solid var(--border);color:var(--muted);border-radius:8px;text-decoration:none;font-family:'Outfit',sans-serif;font-size:0.9rem;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        karimhalkoum134@gmail.com
+      </a>
+      <a href="tel:0541166078" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;border:1px solid var(--border);color:var(--muted);border-radius:8px;text-decoration:none;font-family:'Outfit',sans-serif;font-size:0.9rem;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.09h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.09v.83z"/></svg>
+        05 41 16 60 78
+      </a>
+    </div>
     <div class="contact-form reveal">
       <input type="text" placeholder="Votre nom"/>
       <input type="email" placeholder="Votre email"/>
-      <textarea placeholder="Parlez-moi de votre projet informatique..."></textarea>
-      <button class="btn-primary" style="align-self:center; padding:1rem 3rem; cursor:none;">Envoyer le message</button>
+      <textarea placeholder="Décrivez votre projet : POS, GRH, Stock, Site web... (budget, délai, fonctionnalités)"></textarea>
+      <button class="btn-primary" style="align-self:center; padding:1rem 3rem;">🚀 Envoyer le message</button>
     </div>
   </section>
 
@@ -642,29 +774,6 @@
   </footer>
 
   <script>
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx - 6 + 'px';
-      cursor.style.top  = my - 6 + 'px';
-    });
-
-    (function animateRing() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx - 18 + 'px';
-      ring.style.top  = ry - 18 + 'px';
-      requestAnimationFrame(animateRing);
-    })();
-
-    document.querySelectorAll('a, button, .project-card, .skill-card, .karix-logo-box').forEach(el => {
-      el.addEventListener('mouseenter', () => { cursor.classList.add('hovered'); ring.classList.add('hovered'); });
-      el.addEventListener('mouseleave', () => { cursor.classList.remove('hovered'); ring.classList.remove('hovered'); });
-    });
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
